@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Brahim Chaouki</title>
-    <script type="module">
-        window.canvas = document.getElementById('canvas')
-        window.canvas.width = innerWidth
-        window.canvas.height = innerHeight
-        window.iw = innerWidth
-        window.ih = innerHeight
-    </script>
-    <script src="assets/js/script.js" type="module"></script>
+    <link rel="stylesheet" href="assets/css/script.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
-<canvas id="canvas"></canvas>
+    <canvas id="canvas"></canvas>
+    <div class="speech-bubble hidden">
+        <div class="background-text">
+        <p class="animated-text">Bonjour ! Je suis le personnage.</p>
+        </div>
+        <button id="nextButton">▶</button>
+        
+    </div>
 </body>
+<script type="module">
+    window.canvas = document.getElementById('canvas');
+    window.canvas.width = innerWidth;
+    window.canvas.height = innerHeight;
+    window.iw = innerWidth;
+    window.ih = innerHeight;
+</script>
+<script src="assets/js/script.js" type="module"></script>
+<script src="assets/js/dialogue.js" type="module"></script>
 </html>
