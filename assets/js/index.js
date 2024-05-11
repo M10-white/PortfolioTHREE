@@ -5,4 +5,4 @@ document.getElementById('start-button').addEventListener('click', function() {
     setTimeout(function() {
         window.location.href = 'vivi.html';
     }, 1000); // Temps en millisecondes pour l'animation
-});
+}); 

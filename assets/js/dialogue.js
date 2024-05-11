@@ -8,13 +8,18 @@ const dialogues = [
 ];
 
 const dialogues2 = [
-    "Oh ! Euh... ",
+    "Oh ! Euh...",
     "Bonjour ! Je ne t'avais pas vu.",
     "J'ai vraiment besoin d'aide !",
     "Ça fait plusieurs jours que j'ai perdu la trace de mes amies.",
     "Ils comptent énormément pour moi...",
     "J'ai trouvé une énigme pas loin de cet endroit qui m'aidera à les retrouver.",
     "Pourrais-tu m'aider ?"
+];
+
+const dialogues3 = [
+    "Oh, merci infiniment !",
+    "L'énigme se trouve par ici, suis-moi."
 ];
 
 let currentIndex = 0;
@@ -71,3 +76,10 @@ setTimeout(() => {
     textElement.textContent = '';
     typeWriter(textElement, 50, dialogues2[0]);
 }, 14000);
+
+setTimeout(() => {
+    const ouiButton = document.getElementById('ouiButton');
+    const nonButton = document.getElementById('nonButton');
+    ouiButton.classList.remove('hidden');
+    nonButton.classList.remove('hidden');
+}, 37300);

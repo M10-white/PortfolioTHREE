@@ -20,6 +20,7 @@ canvas {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden; 
+    cursor:default; 
     display: none; /* Masquer la boîte de dialogue au départ */
 }
 
@@ -52,18 +53,42 @@ canvas {
     left: 60%;
     transform: translate(-50%, -50%);
     font-size: 100px; /* Taille de l'icône ajustée */
-    color: #c9c9c5d2; /* Couleur de l'icône */
+    color: #2c2c2cec; /* Couleur de l'icône */
     opacity: 0; /* Masquer l'icône au départ */
     animation: fadeInOut 0.5s ease forwards, rotateRight 2s linear infinite; /* Ajoutez l'animation de rotation */
     display: none; /* Masquer l'icône au départ */
 }
 
+.button-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrer horizontalement et verticalement */
+    display: flex;
+    justify-content: center; /* Aligner les boutons horizontalement */
+}
+
+#ouiButton,
+#nonButton {
+    margin: 0 100%; /* Marge entre les boutons */
+    padding: 10px 20px; /* Espacement interne */
+    font-size: 16px; /* Taille du texte */
+    font-weight: bold;
+    color: white; /* Couleur du texte */
+    background-color: #181818; /* Couleur de fond */
+    border: none; /* Supprimer la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur interactif */
+}
+
+#ouiButton:hover,
+#nonButton:hover {
+    background-color: #383838; /* Couleur de fond au survol */
+}
+
 @keyframes rotateRight {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg); /* Rotation de 0 degrés au départ */
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(45deg); /* Rotation de 360 degrés à la fin */
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(10deg); /* Rotation de 10 degrés à la fin */
     }
 }
 

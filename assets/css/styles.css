@@ -3,73 +3,30 @@ html, body, div, h1, p, a {
     margin: 0;
     padding: 0;
     border: 0;
-}
+} 
 
 /* Body styles */
 body {
-    cursor: url('/assets/images/cursor.png'), pointer;
+    cursor: url('/assets/images/cursor.png'), default;
     font-family: 'Consolas', monospace; /* Police de texte */
 }
 
 /* Background styles */
 .background {
-    background-color: #131417;    /* Noir */
-    height: 100vh;
+    background-image: url("/assets/images/background.png");
+    background-size: cover; /* Ajuste la taille de l'image pour remplir le conteneur */
+    background-position: center; /* Centre l'image horizontalement et verticalement */
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Content styles */
-p {
-    text-shadow: 0 0 7px rgba(255,255,255,.3), 0 0 3px rgba(255,255,255,.3);
-}
-
-.title {
-    color: #e5e5e5;
-    font-size: 2.26rem;
-    text-transform: uppercase;
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-.content {
-    text-align: center;
-    color: #ffffff; /* Blanc */
-    padding: 20px;
-    max-width: 80%;
-}
-
-/* Title styles */
-.animated-title {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    animation: fadeInUp 1s ease forwards;
-    font-family: 'OCR A Std', monospace; /* Police de titre */
-}
-
-/* Text styles */
-.animated-text {
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.5s;
-}
-
-.animated-text-second {
-    margin-bottom: 50px;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.8s;
-}
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+} 
 
 /* Style du bouton */
 .start-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #6f42c1; /* Violet */
+    background-color: #976200; /* Violet */
     color: #ffffff; /* Blanc */
     border: none;
     border-radius: 30px;
@@ -77,8 +34,9 @@ p {
     text-transform: uppercase;
     cursor: pointer;
     outline: none;
-    position: relative;
-    overflow: hidden;
+    position: absolute; /* Utilisez une position absolue */
+    bottom: 35%; /* Placez le bouton à 5% de la hauteur du parent (décalage vers le bas) */
+    right: 35%; /* Placez le bouton à 5% de la largeur du parent (décalage vers la droite) */
     z-index: 1;
 }
 
@@ -102,8 +60,8 @@ p {
 }
 
 .start-button:hover {
-    color: #6f42c1; /* Violet */
-    background-color: #ffffff; /* Blanc */
+    color: #976200; /* Violet */
+    background-color: #1a1a1a; /* Blanc */
     transition: all 0.3s ease;
 }
 
@@ -189,9 +147,10 @@ p {
     }
 }
 
-/* Responsive Styles */
-@media only screen and (max-width: 600px) {
-    .animated-title {
-        font-size: 3rem;
+@media screen and (max-width: 768px) {
+    .start-button {
+        font-size: 1em; /* Taille de police réduite pour les petits écrans */
+        bottom: 32%; /* Décalage vers le bas ajusté pour les petits écrans */
+        right: 32%; /* Décalage vers la droite ajusté pour les petits écrans */
     }
 }

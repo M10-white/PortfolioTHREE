@@ -6,26 +6,27 @@ scene.background = new THREE.Color(0xCCCCCC)
 
 const camera = new THREE.PerspectiveCamera(70, iw / ih)
 
+//VIVI
 const geometry = await GLTFLoader.loadGeometry('assets/characters/bibi.glb')
 const texture = await GLTFLoader.loadTexture('assets/characters/bibi.png')
 const material = new THREE.MeshPhongMaterial({ map: texture, roughness: 0.5, metalness: 0.5 })
 material.ambient = new THREE.Color(0xFFFFFF)
-
-const ambientLight = new THREE.AmbientLight(0xFFFFFF)// Lumière ambiante
-
 const mesh = new THREE.Mesh(geometry, material)
 
+const ambientLight = new THREE.AmbientLight(0xFFFFFF)// Lumière ambiante
 const light = new THREE.PointLight(0xffffff)
 const textureLoader = new THREE.TextureLoader();
 
-const dialogGeometry = new THREE.BoxGeometry(15, 0.5, 1)
+// SOL
+const dialogGeometry = new THREE.BoxGeometry(700, 0.5, 600)
 const dialogueTexture = textureLoader.load('assets/images/sand.png')
 const dialogMaterial = new THREE.MeshPhongMaterial({ map: dialogueTexture, roughness: 0.5, metalness: 0.5 })
 dialogMaterial.ambient = new THREE.Color(0xFFFFFF)
 const dialogMesh = new THREE.Mesh(dialogGeometry, dialogMaterial)
 
+//FOND
 const backgroundTexture = textureLoader.load('assets/images/map.png');
-const backgroundGeometry = new THREE.PlaneGeometry(13, 6, 5);
+const backgroundGeometry = new THREE.PlaneGeometry(2000, 1000, 1);
 const backgroundMaterial = new THREE.MeshBasicMaterial({ map: backgroundTexture })
 const backgroundMesh = new THREE.Mesh(backgroundGeometry, backgroundMaterial)
 
@@ -38,7 +39,7 @@ scene.add(dialogMesh)
 
 mesh.rotation.y += Math.PI
 
-backgroundMesh.position.set(0, 2.5, -1)
+backgroundMesh.position.set(0, 75, -600)
 mesh.position.set(0, 0, 0) 
 dialogMesh.position.set(0, 0.1, 0)
 camera.position.set(0, 2.5, 3)
@@ -79,8 +80,10 @@ setTimeout(() => {
 
 
 //  A FAIRE PROCHAINEMENT
-//  - QUAND TOUT LES TEXTES SONT PASSER ET QUE LES BOITE DE DIALOGUES ONT DISPARU
-//    AFFICHER 2 BOUTONS "oui" et "non"
+//  - IDEE D ANIMATION POUR LES BOUTONS ->
+//      QUAND LE CURSEUR SAPPROCHE DE OUI METTRE UNE ANIMATION HEUREUSE QUI ARRIVE PROGRESSIVEMENT
+//      QUAND LE CURSEUR SAPPROCHE DE NON METTRE UNE ANIMATION STRESSANTE QUI ARRIVE PROGRESSIVEMENT
 //  - IDEE D'AJOUT DE MUSIQUE
-//  - CHANGER LE PORTAIL COMPLETEMENT
+//      CHANGER LA MUSIQUE EN FONCTION DES ANIMATIONS DES BOUTONS
+//  - AMELIORER LA TRANSITION  P1 -> P2
 
