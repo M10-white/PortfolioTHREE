@@ -1,37 +1,73 @@
-// Récupérez une référence vers le bouton "Suivant"
-const nextButton = document.getElementById('nextButton');
-// Récupérez une référence vers la boîte de dialogue
 const speechBubble = document.querySelector('.speech-bubble');
+const textElement = speechBubble.querySelector('.text');
 
-// Créez un tableau de textes à afficher dans la boîte de dialogue
 const dialogues = [
-    "Bonjour ! Je suis le personnage.",
-    "C'est un plaisir de vous rencontrer.",
-    "J'espère que vous passez une bonne journée !"
+    "Je me demande parfois si...",
+    "Si je suis à la hauteur...",
+    "Si je peux vraiment protéger ceux qui me sont chers..."
 ];
 
-let currentIndex = 0; // Initialisez l'index du texte actuel
+const dialogues2 = [
+    "Oh ! Euh... ",
+    "Bonjour ! Je ne t'avais pas vu.",
+    "J'ai vraiment besoin d'aide !",
+    "Ça fait plusieurs jours que j'ai perdu la trace de mes amies.",
+    "Ils comptent énormément pour moi...",
+    "J'ai trouvé une énigme pas loin de cet endroit qui m'aidera à les retrouver.",
+    "Pourrais-tu m'aider ?"
+];
 
-// Ajoutez un gestionnaire d'événements pour le clic sur le bouton "Suivant"
-nextButton.addEventListener('click', function() {
-    // Vérifiez s'il reste des textes à afficher
-    if (currentIndex < dialogues.length - 1) {
-        currentIndex++; // Passez au texte suivant
-        // Mettez à jour le texte affiché dans la boîte de dialogue
-        speechBubble.querySelector('.animated-text').textContent = dialogues[currentIndex];
-    } else {
-        // Cachez la boîte de dialogue et le bouton
-        speechBubble.classList.add('hidden');
-        // Désactivez le bouton "Suivant"
-        nextButton.disabled = true;
-    }
-});
+let currentIndex = 0;
 
-// Fonction pour afficher la boîte de dialogue et le bouton
-function showSpeechBubble() {
-    speechBubble.classList.remove('hidden');
-    nextButton.disabled = false;
+function typeWriter(textElement, speed, dialogue) {
+    let i = 0;
+    const typeInterval = setInterval(() => {
+        if (i < dialogue.length) {
+            textElement.textContent += dialogue.charAt(i);
+            i++;
+        } else {
+            clearInterval(typeInterval);
+            currentIndex++;
+            if (currentIndex < dialogues.length) {
+                setTimeout(() => {
+                    textElement.textContent = '';
+                    typeWriter(textElement, 50, dialogues[currentIndex]);
+                }, 1500);
+            } else if (currentIndex === dialogues.length) {
+                // Appliquer une animation d'opacité à la boîte de dialogue
+                setTimeout(() => {
+                speechBubble.style.transition = 'opacity 0.5s ease';
+                speechBubble.style.opacity = '0';
+            }, 1500);
+            } else if (currentIndex < dialogues.length + dialogues2.length) {
+                setTimeout(() => {
+                    textElement.textContent = '';
+                    typeWriter(textElement, 50, dialogues2[currentIndex - dialogues.length]);
+                }, 1500);
+            } else {
+                // Tous les dialogues ont été affichés
+            }
+        }
+    }, speed);
 }
 
-// Affichez la boîte de dialogue et le bouton lorsque le contenu de la page est chargé
-document.addEventListener('DOMContentLoaded', showSpeechBubble);
+setTimeout(() => {
+    speechBubble.style.display = 'block';
+    typeWriter(textElement, 50, dialogues[currentIndex]);
+}, 2000);
+
+setTimeout(() => {
+    const exclamation = document.querySelector('.exclamation');
+    exclamation.style.display = 'block';
+    setTimeout(() => {
+        exclamation.style.opacity = '0';
+    }, 500);
+}, 12500);
+
+setTimeout(() => {
+    currentIndex = dialogues.length; // Passer aux dialogues 2
+    speechBubble.style.opacity = '1'; // Assurer que la boîte de dialogue est visible
+    speechBubble.style.display = 'block';
+    textElement.textContent = '';
+    typeWriter(textElement, 50, dialogues2[0]);
+}, 14000);
