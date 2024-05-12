@@ -46,6 +46,17 @@ camera.position.set(0, 2.5, 3)
 light.position.set(0, 0, 0)
 ambientLight.position.set(0, 1, 1)
 
+window.addEventListener('changeMeshPosition', (event) => {
+  const { x, y, z } = event.detail;
+  mesh.position.set(x, y, z);
+});
+
+window.addEventListener('changeMeshPositionInitial', (event) => {
+  const { x, y, z } = event.detail;
+  mesh.position.set(x, y, z);
+});
+
+
 const renderer = new THREE.WebGLRenderer({ canvas })
 
 let t = 0
@@ -79,10 +90,8 @@ setTimeout(() => {
 }, 13000)
 
 
+
 //  A FAIRE PROCHAINEMENT
-//  - IDEE D ANIMATION POUR LES BOUTONS ->
-//      QUAND LE CURSEUR SAPPROCHE DE OUI METTRE UNE ANIMATION HEUREUSE QUI ARRIVE PROGRESSIVEMENT
-//      QUAND LE CURSEUR SAPPROCHE DE NON METTRE UNE ANIMATION STRESSANTE QUI ARRIVE PROGRESSIVEMENT
 //  - IDEE D'AJOUT DE MUSIQUE
 //      CHANGER LA MUSIQUE EN FONCTION DES ANIMATIONS DES BOUTONS
 //  - AMELIORER LA TRANSITION  P1 -> P2
