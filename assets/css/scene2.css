@@ -8,7 +8,7 @@ canvas {
     display: block;
     margin: 0;
     padding: 0;
-}
+} 
 
 .speech-bubble {
     position: absolute;
@@ -43,6 +43,21 @@ canvas {
     border-radius: 5px; /* Coins arrondis */
 }
 
+.symbol-sequence {
+    position: absolute;
+    top: 10%; /* Ajustez la position verticale selon vos besoins */
+    left: 60%; /* Centrez horizontalement */
+    transform: translateX(-50%); /* Centrez horizontalement */
+    display: flex;
+    justify-content: space-between; /* Pour espacer également les éléments */
+    align-items: center; /* Pour aligner les éléments verticalement */
+    width: 60%; /* Largeur de la séquence */
+}
+
+.symbol {
+    width: 10%; /* Largeur fixe de 100 pixels */
+    height: 10%; /* Hauteur fixe de 100 pixels */
+}
 .hidden {
     display: none;
 }
