@@ -3,12 +3,12 @@ html, body, div, h1, p, a {
     margin: 0;
     padding: 0;
     border: 0;
+    font-family: 'Consolas', monospace; /* Police de texte */
 } 
 
 /* Body styles */
-body {
-    cursor: url('/assets/images/cursor.png'), default;
-    font-family: 'Consolas', monospace; /* Police de texte */
+body, .background, .start-button:before, .start-button.animated-button {
+    cursor: url("https://1.bp.blogspot.com/-NmbnDADABUE/XSfhUk_X2yI/AAAAAAAAFFw/5Tp7zt_8erg2AJ-aQ1VhYdH_l4nTReY7wCLcBGAs/s1600/cursor.png"), default;
 }
 
 /* Background styles */

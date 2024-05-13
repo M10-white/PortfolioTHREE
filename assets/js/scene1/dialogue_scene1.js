@@ -3,10 +3,12 @@ const speechBubble = document.querySelector('.speech-bubble');
 const textElement = speechBubble.querySelector('.text');
 const nonButton = document.getElementById('nonButton');
 const ouiButton = document.getElementById('ouiButton');
-const backgroundMusic = new Audio('assets/audio/scene1.mp3');
 
+document.addEventListener('DOMContentLoaded', () => {
+const backgroundMusic = new Audio('assets/audio/scene1.mp3');
 backgroundMusic.loop = true; 
 backgroundMusic.play();
+});
 
 const dialogues = [
     "Je me demande parfois si...",

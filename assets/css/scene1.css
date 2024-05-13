@@ -32,7 +32,17 @@ canvas {
     opacity: 0; 
     animation: fadeIn 0s forwards; 
     white-space: nowrap; 
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
+body, button, .hidden, #ouiButton:hover, #nonButton:hover {
+    cursor: url("https://1.bp.blogspot.com/-NmbnDADABUE/XSfhUk_X2yI/AAAAAAAAFFw/5Tp7zt_8erg2AJ-aQ1VhYdH_l4nTReY7wCLcBGAs/s1600/cursor.png"), default;
+}
+
 
 .background-text{
     margin: 0;
