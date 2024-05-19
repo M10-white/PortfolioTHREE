@@ -18,15 +18,15 @@ const light = new THREE.PointLight(0xffffff)
 const textureLoader = new THREE.TextureLoader();
 
 // SOL
-const dialogGeometry = new THREE.BoxGeometry(15, 0.5, 1)
+const dialogGeometry = new THREE.BoxGeometry(12.5, 0.5, 1)
 const dialogueTexture = textureLoader.load('assets/images/sand.png')
 const dialogMaterial = new THREE.MeshPhongMaterial({ map: dialogueTexture })
 dialogMaterial.ambient = new THREE.Color(0xFFFFFF)
 const dialogMesh = new THREE.Mesh(dialogGeometry, dialogMaterial)
 
 //FOND
-const backgroundTexture = textureLoader.load('assets/images/map.png');
-const backgroundGeometry = new THREE.PlaneGeometry(13, 13, 5);
+const backgroundTexture = textureLoader.load('assets/images/grotte.png');
+const backgroundGeometry = new THREE.PlaneGeometry(13, 6, 1);
 const backgroundMaterial = new THREE.MeshBasicMaterial({ map: backgroundTexture })
 const backgroundMesh = new THREE.Mesh(backgroundGeometry, backgroundMaterial)
 
@@ -37,12 +37,12 @@ scene.add(mesh)
 scene.add(ambientLight)
 scene.add(dialogMesh)
 
-backgroundMesh.position.set(0, 0, -1)
+backgroundMesh.position.set(0, 2.9, -1)
 mesh.position.set(-3, 0, 0)
 mesh.rotation.y = Math.PI-1 
 //mesh.rotation.y = Math.PI/3
 dialogMesh.position.set(0, 0.1, 0)
-camera.position.set(0, 2.5, 3)
+camera.position.set(0, 2.5, 3) //TOUJOURS 3 DE PROFONDEUR 
 light.position.set(0, 0, 0)
 ambientLight.position.set(0, 1, 1)
 
@@ -84,6 +84,4 @@ function handleWindowResize() {
     camera.updateProjectionMatrix()
 }
 
-//  A FAIRE PROCHAINEMENT
-//  - AMELIORER LA TRANSITION  P1 -> P2
 

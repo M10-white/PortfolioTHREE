@@ -39,7 +39,7 @@ canvas {
     user-select: none;
 }
 
-body, button, .hidden, #ouiButton:hover, #nonButton:hover {
+body, button, .hidden, #ouiButton:hover, #nonButton:hover,html {
     cursor: url("https://1.bp.blogspot.com/-NmbnDADABUE/XSfhUk_X2yI/AAAAAAAAFFw/5Tp7zt_8erg2AJ-aQ1VhYdH_l4nTReY7wCLcBGAs/s1600/cursor.png"), default;
 }
 

@@ -38,31 +38,102 @@ body, button, .hidden {
     cursor: url("https://1.bp.blogspot.com/-NmbnDADABUE/XSfhUk_X2yI/AAAAAAAAFFw/5Tp7zt_8erg2AJ-aQ1VhYdH_l4nTReY7wCLcBGAs/s1600/cursor.png"), default;
 }
 
-
 .background-text{
     margin: 0;
     font-size: 16px;
     line-height: 1.4;
-    background-color: #383838; /* Couleur de fond pour le texte */
-    padding: 5px 10px; /* Espacement autour du texte */
-    border-radius: 5px; /* Coins arrondis */
+    background-color: #383838; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
 }
 
 .symbol-sequence {
+    background-color: rgba(0, 0, 0, 0.8); /* Fond de couleur avec transparence */
+    padding: 2% 3%;
     position: absolute;
-    top: 10%; /* Ajustez la position verticale selon vos besoins */
-    left: 60%; /* Centrez horizontalement */
+    top: 10%; 
+    left: 60%; 
     transform: translateX(-50%); /* Centrez horizontalement */
     display: flex;
     justify-content: space-between; /* Pour espacer également les éléments */
     align-items: center; /* Pour aligner les éléments verticalement */
     width: 60%; /* Largeur de la séquence */
+    height: 13%;
+    border-radius: 15px; /* Bordures arrondies */
+    user-select: none; /* Empêche la sélection */
+    -webkit-user-drag: none; /* Empêche la saisie sur Safari */
 }
 
 .symbol {
-    width: 10%; /* Largeur fixe de 100 pixels */
-    height: 10%; /* Hauteur fixe de 100 pixels */
+    position: absolute;
+    width: 10vw; /* Largeur relative à la largeur de la fenêtre */
+    height: 10vw; /* Hauteur relative à la largeur de la fenêtre */
+    max-width: 100px; /* Largeur maximale pour éviter qu'elles ne deviennent trop grandes */
+    max-height: 100px; /* Hauteur maximale pour éviter qu'elles ne deviennent trop grandes */
+    border-radius: 15px; /* Bordures arrondies */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition pour les effets de survol */
+    user-select: none; /* Empêche la sélection */
+    -webkit-user-drag: none; /* Empêche la saisie sur Safari */
 }
+
+.symbol:nth-child(1) {
+    left: 6%; /* Ajustez ce nombre selon vos besoins */
+}
+
+.symbol:nth-child(2) {
+    left: 32%; /* Ajustez ce nombre selon vos besoins */
+}
+
+.symbol:nth-child(3) {
+    left: 58%; /* Ajustez ce nombre selon vos besoins */
+}
+
+.symbol:nth-child(4) {
+    left: 84%; /* Ajustez ce nombre selon vos besoins */
+}
+
+.symbol:hover {
+    transform: scale(1.1); /* Agrandit l'image au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Renforce l'ombre au survol */
+}
+
+.bottom-bar {
+    position: absolute; /* Ajouter cette ligne */
+    bottom: 15%;
+    left: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 12%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2% 3%;
+    border-radius: 15px;
+}
+
+.zone {
+    filter: brightness(70%);
+    background-image: url("../js/scene2/symbolQ.png");
+    width: 10vw; /* Largeur relative à la largeur de la fenêtre */
+    height: 10vw; /* Hauteur relative à la largeur de la fenêtre */
+    max-width: 100px; /* Largeur maximale pour éviter qu'elles ne deviennent trop grandes */
+    max-height: 100px; /* Hauteur maximale pour éviter qu'elles ne deviennent trop grandes */
+    border-radius: 15px; /* Bordures arrondies */
+    margin: 0 1vw; /* Espacement horizontal entre les zones */
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition pour les effets de survol */
+    user-select: none; /* Empêche la sélection */
+    -webkit-user-drag: none; /* Empêche la saisie sur Safari */
+    background-size: cover; /* Assure que l'image de fond couvre toute la zone */
+    background-position: center; /* Centre l'image de fond */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
+
 .hidden {
     display: none;
 }
@@ -84,5 +155,17 @@ body, button, .hidden {
     100% {
         opacity: 1; 
         transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .symbol-sequence, .bottom-bar {
+        width: 90vw; /* Largeur relative à la largeur de la fenêtre */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .symbol, .zone {
+        width: 20vw; /* Largeur relative à la largeur de la fenêtre */
+        height: 20vw; /* Hauteur relative à la largeur de la fenêtre */
     }
 }
